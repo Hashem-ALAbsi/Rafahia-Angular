@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+
+
+    <!-- <link href="form.css" rel="stylesheet"> -->
+</head>
+<body>
+    
+
+  <div class="container">
+    <div class="text">
+        تعديل بيانات الخدمة  
+    </div>
+    <form action="#"  [formGroup]="updateserviceForm" (ngSubmit)="save()">
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" required  formControlName="Name" [(ngModel)]="service.name" >
+                <div class="underline"></div>
+                <label for=""> اسم الخدمة</label>
+            </div>
+            <div class="input-data">
+                <input type="text" [(ngModel)]="service.number" formControlName="Number">
+                <div class="underline"></div>
+                <label for=""> العدد</label>
+            </div>
+            <div class="input-data">
+                <input type="text" [(ngModel)]="service.numberPeople" formControlName="NumberPeople">
+                <div class="underline"></div>
+                <label for=""> العدد</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" required  [(ngModel)]="service.price" formControlName="Price">
+                <div class="underline"></div>
+                <label for=""> السعر</label>
+            </div>
+            <div class="input-data">
+                <input type="text" required formControlName="Description" [(ngModel)]="service.description" >
+                <div class="underline"></div>
+                <label for=""> ملاحظة</label>
+            </div>
+        </div>
+        <input class="inn" type="file" id="myFile"  name="filename" (change)="selectphoto($event)">
+        <div class="form-row">
+            <div class="input-data textarea"></div>
+        </div>
+        <div class="form-row submit-btn">
+            <div class="input-data">
+                <div class="inner"></div>
+                <input type="submit" value="حفظ">
+            </div>
+        </div>
+        <br>
+        <!-- <div class="form-row submit-btn">
+          <div class="input-data">
+              <div class="inner"></div>
+              <a routerLink="/" >العودة</a>
+          </div>
+      </div>  -->
+    </form>
+</div>
+</body>
+</html>

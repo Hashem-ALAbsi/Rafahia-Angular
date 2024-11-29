@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div *ngIf="serviceImages.length<5" class="card-header">
+      
+      <h4>
+        
+        <a routerLink="/addimage/{{serviceId}}/service" class="btn  float-end" style="background-color:#467194; color:white" >أضافة صور</a>
+      
+      </h4>
+    </div>
+    
+      <div class="row mt-4">
+        <div class="col">
+          <div *ngIf="serviceImages.length === 0" class="alert alert-info">
+              لم تقم باضافة صور .
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div *ngFor="let image of serviceImages" class="col">
+              <div class="card">
+                <img [src]="image.imageName" class="card-img-top" alt="Company Image">
+                <div class="card-body">
+                  <button (click)="deletecompany($event,image.id,email)" class="btn btn-danger">حذف</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ 
+  
+
+

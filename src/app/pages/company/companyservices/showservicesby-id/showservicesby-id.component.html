@@ -1,0 +1,58 @@
+<div class="mt-5 container">
+    <div class="card">
+      <div class="card-header">
+        <h4>ActiveUsers
+          <a routerLink="/createService" class="btn btn-primary float-end">أضافة خدمة</a>
+
+          <div class="input-container">
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search ....">
+          </div>
+        </h4>
+      </div>
+      <div class="card-body" >
+        <div *ngIf="isloading; else elseTableBlock">
+          <app-loading></app-loading>
+        </div>
+        <ng-template #elseTableBlock>
+          <table class="table table-striped table-bordered  table-width">
+            <thead>
+              <tr>
+                
+                <th>الاسم</th>
+                <th>العدد</th>
+                <th>السعر</th>
+                <th>الوصف</th>
+                <th>الشركه</th>
+                <th>صورة الخدمة</th>
+                
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of service  ">     
+                <td>{{ item.name }}</td>    
+                <td>{{item.number}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.company}}</td>
+                
+                
+                <td><img  class="img-responsive img-thumbnail" src={{item.imageService}}
+                   style="width:70px;height:70px"></td>
+               
+          
+                <td >
+                  <a routerLink="/update/{{item.id}}/Service" class="btn btn-success">Edit</a>
+                  <button type="button" (click)="deleteservice($event,item.id,Email)" class="btn btn-danger">Delete</button> 
+                  
+                  <a routerLink="/showimage/{{item.id}}/service" class="btn btn-success">photo</a> 
+                  <a routerLink="/showOrders/{{item.id}}/service" class="btn btn-success">order</a>  
+                  
+                </td> 
+                
+            </tbody>
+          </table>
+        </ng-template>
+      </div>
+    </div>
+  </div>

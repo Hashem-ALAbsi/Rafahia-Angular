@@ -1,0 +1,163 @@
+<!-- 
+  <div class="parent">
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+  </div>
+  <form (ngSubmit)="login()">
+      <h3>Login Here</h3>
+  
+      <label for="username">Email</label>
+      <input type="text" placeholder="Email or Phone" id="username" [(ngModel)]="email" name="email">
+      
+  
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" id="password">
+  
+      <button type="submit">Log In</button>
+      <div class="social">
+       
+        <a class="fb" href="/regester">
+          <i class="fab fa-facebook"></i> حساب مالك
+        </a>
+      </div>
+  </form>
+  </div> -->
+  
+  <!DOCTYPE html>
+  <html lang="rtl">
+  
+  <head>
+      <title>Log-in or sign-up</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- <link rel="stylesheet"  href="src\app\pages\login-page\login-page.component.css"> -->
+      <!-- <link rel="stylesheet"  href="bootstrap.min.css"> -->
+      
+      
+   
+     
+  </head>
+  
+  <body>
+   
+  
+  
+   
+  
+  
+  <!-- LOG-IN --->
+  
+  <div class="in-mian ">
+    
+          <div class="cont col-12 col-md-10 col-sm-12">
+              <div class="form-login sign-in">
+  
+                  <br>
+                  <br>
+                  <h2 class="login-text">تسجيل الدخول</h2>
+                  
+                  <br>
+                  <br>
+                  <div class="input-container">
+                    <input type="text" id="input" required="" [(ngModel)]="email" name="email">
+                    <label for="input" class="label">البريد الالكتروني</label>
+                    <br>
+                  </div>
+                  <div class="input-container pt-2">
+                    <input type="password" id="input" required="" [(ngModel)]="password" name="password">
+                    <label for="input" class="label pt-1">كلمة المرور</label>
+                    
+                  </div>
+                  
+                  <button type="button" class="submit"  (click)="login()">تسجيل الدخول    </button>
+                  <div><button type="button" class="foget" routerLink="/forgetpass">
+                    
+                    هل نسيت كلمة المرور؟
+                  </button>
+               
+              </div>
+               
+              </div>
+              <div class="sub-cont">
+                <div class="img">
+                  <div class="img__text m--up">
+                    <h3>لاتمتلك حساب !</h3>
+                    <br>
+                    <h3>قم بإنشاء حسابك الآن</h3>
+                  </div>
+                  <div class="img__text m--in">
+                    <h3>  اذا كنت تمتلك حساب بالفعل قم بتسجيل الدخول فقط  </h3>
+                  </div>
+                  <div class="img__btn">
+                    <span class="m--up">انشاء حساب</span>
+                    <span class="m--in">تسجيل دخول</span>
+                  </div>
+                </div>
+                  <div class="form sign-up">
+                      <h2 class="signin-text">إنشاء حساب</h2>
+                      <div class="input-container">
+                        <input type="text" id="input" required="" [(ngModel)]="firstname" name="firstname">
+                        <label for="input" class="label pt-3">الاسم الاول </label>
+                        
+                      </div>
+                      <div class="input-container">
+                          <input type="text" id="input" required="" [(ngModel)]="lastname" name="lastname">
+                          <label for="input" class="label pt-3">الاسم الاخير</label>
+                          
+                        </div>
+                        <div class="input-container">
+                          <input type="text" id="input" required=""  [(ngModel)]="username" name="username">
+                          <label for="input" class="label pt-3">اسم المستخدم</label>
+                          
+                        </div>
+                      <div class="input-container">
+                        <input type="text" id="input" required=""  [(ngModel)]="emaile" name="emaile">
+                        <label for="input" class="label pt-3">البريد الالكتروني</label>
+                        
+                      </div>
+                      <div class="input-container">
+                        <input type="text" id="input" required="" [(ngModel)]="passworde" name="passworde">
+                        <label for="input" class="label pt-3">كلمة المرور</label>
+                        
+                      </div>
+                      <div class="input-container">
+                          <input type="text" id="input" maxlength="9" minlength="9" required=""  [(ngModel)]="phonenumber" name="phonenumber">
+                          <label for="input" class="label pt-3 pb-2">رقم الهاتف</label>
+                          
+                        </div>
+                      <button type="button" class="submit " (click)="saveadmin()">إنشاء حساب </button>
+                      
+                  </div>
+              </div>
+          </div>
+      
+  
+  
+          
+  
+  
+        </div>
+  
+  
+  
+  
+  
+      
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     
+  </body>
+  
+  </html>

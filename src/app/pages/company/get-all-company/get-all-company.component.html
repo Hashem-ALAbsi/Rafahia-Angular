@@ -1,0 +1,173 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="auto">
+
+<head>
+  <script src="color-modes.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.118.2">
+
+
+
+
+
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="ar" dir="rtl" data-bs-theme="auto">
+
+  <head>
+    <script src="color-modes.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+
+
+  </head>
+
+  <body>
+    <div class="users-text text-center">[  الشركات ]</div>
+    <div class="container main-container">
+      <div class="container-input">
+        <input type="text" placeholder="البحث عن خدمة" name="text" class="input" [(ngModel)]="searchcompany">
+        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z"
+            fill-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div class="count-row" >
+        <select (change)="onTableSizechange($event)">
+          <option *ngFor="let size of tablesSizes" >{{size}}</option>
+        </select>
+      </div>
+  <div class="row" dir="rtl">
+        <div>
+          <div class="card flex-fill">
+            
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered">
+                <thead>
+                  <tr>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> المعرف</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> الاسم</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> نوع النشاط</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> خطوط العرض</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">خطوط الطول</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> المدينه </th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> الحي</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> ملاحظه</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> مطعم</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col" > مسبح</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> مقهى</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> الصورة</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of allcompany | filtercompany:searchcompany | paginate: {
+                        itemsPerPage: tablesize,
+                        currentPage: page,
+                        totalItems: count
+                    }; let i = index" class="nth-of-type">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.typeCompanyName }}</td>
+                    <td>{{ item.longtude }}</td>
+                    <td>{{ item.latetud }}</td>
+                    <td>{{ item.addressName }}</td>
+                    <td>{{ item.cityName }}</td>
+                    <td>{{ item.note }}</td>
+                    <td>{{ item.rustorant }}</td>
+                    <td>{{ item.swimmingbool }}</td>
+                    <td>{{ item.cooffee }}</td>
+                    <td><img class="img-responsive img-thumbnail" src="{{ item.imageCompany }}"
+                        style="width:70px;height:70px"></td>
+                    <td>
+                      <button class="bbt" routerLink="/update/{{ item.id }}/company"><span>تعديل</span></button>
+                       <span>   -  </span>
+                      <button class="bbt button-block" (click)="deletecompany($event, item.id, email)">
+                        <span>حذف</span>
+                      </button>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bootstrap.bundle.min.js"></script>
+  </body>
+
+  </html> -->
+  <html lang="ar" dir="rtl" data-bs-theme="auto">
+ <p-table 
+ 
+ [value]="allcompany" [rows]="10" [rowsPerPageOptions]="[5,10, 25, 50]" [paginator]="true"
+ [tableStyle]="{ 'min-width': '53rem' }" [lazy]="true" [(selection)]="selectedOpportunity"
+ [first]="page * tablesize" [totalRecords]="count" (onPage)="onTableDatachange($event)"
+ dataKey="id" stateStorage="session" stateKey="statedemo-session">
+  
+  <ng-template pTemplate="header">
+    <span class="p-input-icon-left ml-auto">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text" [(ngModel)]="searchcompany"  placeholder="Search keyword" />
+  </span>
+  
+    <tr>
+
+      <th style="min-width: 10rem;text-align: center;">الاسم</th>
+      <th style="max-width: 10rem;text-align: center;">نوع النشاط</th>
+      <th style="min-width: 10rem;">خطوط العرض</th>
+      <th style="min-width: 10rem;">خطوط الطول</th>
+      <th style="max-width: 10rem;">المدينه</th>
+      <th style="max-width: 15rem;">الحي</th>
+      <th style="min-width: 15rem;text-align: center;">ملاحظه</th>
+      <th style="max-width: 10rem;">مطعم</th>
+      <th style="max-width: 10rem;">مسبح</th>
+      <th style="max-width: 10rem;">مقهى</th>
+      <th style="min-width: 10rem;text-align: center;">الصورة</th>
+    </tr>
+  </ng-template>
+  
+  <ng-template pTemplate="body" let-item >
+    <tr *ngIf=" item.name.includes(searchcompany)">
+      
+      <td>{{ item.name }}</td>
+      <td>{{ item.typeCompanyName }}</td>
+      <td>{{ item.longtude }}</td>
+      <td>{{ item.latetud }}</td>
+      <td>{{ item.addressName }}</td>
+      <td>{{ item.cityName }}</td>
+      <td  >{{ item.note |slice:0:50}}</td>
+      <td>{{ item.rustorant }}</td>
+      <td>{{ item.swimmingbool }}</td>
+      <td>{{ item.cooffee }}</td>
+      <td><img class="img-responsive img-thumbnail" [src]="item.imageCompany" style="width:70px;height:70px"></td>
+      <td>
+        <button class="bbt" routerLink="/company/{{ item.id }}/detail"><span>تفاصيل</span></button>
+        <span> - </span>
+        <button class="bbt button-block" (click)="deletecompany($event, item.id, email)"><span>حذف</span></button>
+      </td>
+    </tr>
+  </ng-template>
+  
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="12">No data found.</td>
+    </tr>
+  </ng-template>
+</p-table>
+</html>

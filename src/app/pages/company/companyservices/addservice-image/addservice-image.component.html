@@ -1,0 +1,21 @@
+<div class="container"  dir="rtl">
+    <!-- <div class="mb-3">
+      <label for="companyId" class="form-label">Service ID:</label>
+      <input type="number" id="companyId" class="form-control" [(ngModel)]="serviceId">
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" class="form-control" [(ngModel)]="email">
+    </div> -->
+  
+    <div class="mb-3 pe-5">
+      <label for="images" class="form-label pb-2" style="font-size: 22px">الصور:</label>
+      <input type="file" id="images" class="form-control" (change)="onFileChange($event)" multiple>
+    </div>
+  <div class="pe-5">
+  
+    <button class="btn" style="background-color:#467194; color:white" (click)="createserviceImages()">اختار صورة</button>
+  </div>
+</div>
+  

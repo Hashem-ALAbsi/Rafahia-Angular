@@ -1,0 +1,141 @@
+
+  <html lang="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء منشأه</title>
+
+
+    
+</head>
+<body>
+  <div dir="ltr" class="ps-3">
+    <button *ngIf="!admin" class="bbt" routerLink="/mainowner" >
+      <span>عودة
+        
+      </span>
+    </button>
+    <button *ngIf="admin" class="bbt" routerLink="/showallcompany" >
+      <span>عودة
+        
+      </span>
+    </button>
+  </div>
+    
+
+  <div class="container">
+    <div class="text">
+تفاصيل الشركه    </div>
+    <form action="#" [formGroup]="updateCompanyForm">
+        <div class="form-row">
+          <div class="input-data">
+            <div class="onlyread"> اسم الشركة</div>
+            <input type="text"  formControlName="Name" [(ngModel)]="company.name"  class="form-control"   readonly/>
+            <div class="underline"></div>
+          
+             </div>
+
+        
+            <div class="input-data">
+                <div class="onlyread"> المحافظة</div>
+                <input type="text" [(ngModel)]="company.addressName" formControlName="Email"   class="form-control" readonly  />
+                <div class="underline"></div>
+                
+            </div>
+            <div class="input-data">
+              <div class="onlyread"> المديرية</div>
+              <input type="text" formControlName="CityName"  [(ngModel)]="company.cityName"  class="form-control" readonly>
+              <div class="underline"></div>
+            
+           </div>
+     
+        </div>
+        <div class="form-row pt-4">
+            <div class="paste-button">
+                
+                
+            </div>
+            <div class="input-data">
+                <div class="onlyread">نبذة عن الشركة </div>
+                <input type="text" formControlName="Note" [(ngModel)]="company.note" class="form-control"readonly>
+                <div class="underline"></div>
+                
+            </div>
+      <div class="input-data">
+        <div class="onlyread"> خط الطول</div>
+        <input type="text" [(ngModel)]="company.latetud" formControlName="Latetud" class="form-control" readonly>
+        <div class="underline"></div>
+        
+    </div>
+    
+    <div class="input-data">
+        <div class="onlyread">خط العرض </div>
+                <input type="text" [(ngModel)]="company.longtude" formControlName="Longtude" class="form-control" readonly>
+                <div class="underline"></div>
+              
+            </div>
+         
+            
+            
+        </div>
+        
+        <div class="form-row">
+            
+        
+            <label class="cyberpunk-checkbox-label ">
+                <input type="checkbox" class="cyberpunk-checkbox" [(ngModel)]="company.rustorant" formControlName="Rustorant"[readOnly]="true">
+                مطعم
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" class="cyberpunk-checkbox" [(ngModel)]="company.swimmingbool" formControlName="Swimmingbool"[readOnly]="true">
+                مسبح
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" class="cyberpunk-checkbox " [(ngModel)]="company.cooffee" formControlName="Cooffee"[readOnly]="true">
+                مقهى
+            </label>
+    
+          
+            <div>
+                <img src={{company.imageCompany}} style="width: 150px;height: 140px;" alt="الصورة الرئيسية"/>
+               </div>
+       
+          </div>
+    
+  <hr>
+        
+  <div class="row mt-4">
+    <div class="col">
+     
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div *ngFor="let image of companyImages" class="col">
+              <div class="card mb-4">
+                <img [src]="image.imageName" class="card-img-top" alt="Company Image">
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="input-data textarea pb-5">
+        <div class="form-row submit-btn">
+          <div class="input-data">
+            <div class="inner"></div>
+            <button class="bbt"  style="width: 100%;" routerLink="/company/{{ companysid }}/service"><span>الخدمات</span></button>
+
+          </div>
+        </div>
+      </div>
+</div>
+<hr>
+
+
+
+
+    </form>
+   
+   
+</div>
+        
+</body>
+</html>

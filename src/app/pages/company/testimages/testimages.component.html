@@ -1,0 +1,100 @@
+
+<div class="container mt-5" dir="rtl">
+
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <h4>إنشاء  منشأة</h4>
+          <a href="/" class="btn btn-danger float-start">العودة</a>
+        </div>
+        <div class="card-body">
+          <div *ngIf="isLoading; else elseForm">
+            <app-loading [title]="loadingTitle"></app-loading>
+          </div>
+          <ng-template #elseForm>
+            <form [formGroup]="createcompanyForm" (ngSubmit)="save()">
+              <div class="mb-3">
+                <app-formelement [label]="'البريد الالكتروني '">
+                  <input type="text" formControlName="Email"  [(ngModel)]="email"  class="form-control" />
+
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                <app-formelement [label]="'أسم الشركة'">
+                  <input type="text" formControlName="Name"  class="form-control" />
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                <app-formelement [label]="' نوع الشركة'">
+                  <select  formControlName="TypeCompanyId" >
+                    <option value="">نوع الشركة</option>
+                    <option value=1>فندق</option>
+                    <option value=2>شالية</option>
+                    <option value=3>استراحة</option>
+                  </select>
+                </app-formelement>
+               
+              </div>
+             
+              <div class="mb-3">
+                <app-formelement [label]="'خطوط العرض '">
+                  <input type="text" formControlName="Longtude" class="form-control" />
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'خطوط الطول '">
+                  <input type="text" formControlName="Latetud" class="form-control" />
+                </app-formelement> 
+               
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'الموقع '">
+                  <input type="text"formControlName="AddressId"  class="form-control" />
+                </app-formelement> 
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'ملاحظات '">
+                  <textarea formControlName="Note"  class="form-control"></textarea>
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'مطعم '">
+                  <input type="checkbox" formControlName="Rustorant"  />
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'مسبح '">
+                  <input type="checkbox" formControlName="Swimmingbool"  />
+                </app-formelement> 
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'قهوة '">
+                  <input type="checkbox" formControlName="Cooffee"  />
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                 <app-formelement [label]="'صورة المنشأة '">
+                  <input type="file" (change)="selectphoto($event)">
+                </app-formelement>
+                
+              </div>
+              <div class="mb-3">
+                <input type="submit" value="Save" >
+                
+              </div>
+            </form>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  

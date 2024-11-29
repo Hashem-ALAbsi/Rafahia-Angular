@@ -1,0 +1,50 @@
+
+
+<html lang="rtl">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> ابلاغ عن تعليق</title>
+  
+  
+      
+  </head>
+  <body>
+      
+  
+    <div class="container">
+      <a href="/comment/{{ companyid }}/company" class="btn btn-danger float-start pe-1 ps-1">X</a>
+
+      <div class="text">
+        الابلاغ عن تعليق
+      </div>
+      <form (submit)="createCreport()">         
+           <div class="form-row pb-5">
+            <div class="input-data">
+              <div class=""> سبب البلاغ </div>
+              <textarea id="Reporttext" [(ngModel)]="Reporttext" name="Reporttext" required class="form-control"></textarea>
+              <div class="underline"></div>
+            
+          </div>
+          </div>
+          <div class="form-row pt-5">
+              <div class="input-data textarea pb-5">
+                  <div class="form-row submit-btn">
+                      <div class="input-data">
+                          <div class="inner"></div>
+                          <input type="submit" value="حفظ">
+                      </div>
+                  </div>
+   
+                  
+              </div>
+          </div>
+      </form>
+     
+      <div id="map" style="width: 100%; height: 400px;"  ></div> 
+  </div>
+          
+  </body>
+  </html>
+
+

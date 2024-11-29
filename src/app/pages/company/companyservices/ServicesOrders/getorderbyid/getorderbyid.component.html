@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="auto">
+<head>
+    <script src="color-modes.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+
+    <!-- <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+  <div class="users-text text-center">[ الطلبات]</div>
+
+
+  <div class="container main-container" >
+    <div class="container-input">
+        <input type="text" placeholder="البحث عن طلب" name="text" class="input">
+        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+          <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+      </svg>
+    </div>
+    <div  class="count-row">
+      <select (change)="onTableSizechange($event)">
+        <option *ngFor="let size of tablesSizes">
+          {{size}}
+        </option>
+      </select>
+    </div>
+
+    <!-- <div class="table-responsive">
+      <table class="table table-sm table-bordered">
+        <thead>
+          <tr>
+            <th class="tth" scope="col">حساب العميل </th>
+            <th class="tth" scope="col">الخدمة</th>
+            <th class="tth" scope="col">تاريخ الدخول</th>
+            <th class="tth" scope="col">تاريخ الخروج</th>
+            <th class="tth" scope="col">رقم الحجز </th>
+            <th class="tth" scope="col">اسم الشركة </th>
+            <th class="tth" scope="col">حالة الحجز </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orders | paginate: { itemsPerPage: tablesize, currentPage: page, totalItems: count }; let i = index" class="nth-of-type">
+            <td>{{ item.client }}</td>
+            <td>{{ item.service }}</td>
+            <td>{{ item.time_in }}</td>
+            <td>{{ item.time_out }}</td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.companyName }}</td>
+            <td>{{ item.stateOrder }}</td>
+            <td colspan="2">
+              <button (click)="acceptorder($event, item.id)">
+                <span>قبول</span>
+              </button>
+              <button (click)="cancelorder($event, item.id)">
+                <span>رفض</span>
+              </button>
+              <button (click)="generatePDF(item.id)">
+                <span>طباعة</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+   
+          <div class="table-responsive">
+            <table class="table table-hover my-0">
+              <thead>
+              <tr>
+                <th class="tth  d-sm-table-cell d-xl-table-cell">رقم الطلب</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">اسم العميل</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">اسم الخدمة</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">السعر</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">تاريخ الوصول</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">تاريخ المغادرة</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">تاريخ الطلب</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">الشركة</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">حالة الطلب</th>
+                <th class="tth d-sm-table-cell d-xl-table-cell">حالة الدفع</th>
+              </tr>
+            </thead>
+              <tbody>
+                <tr *ngFor="let book of orders | paginate: { itemsPerPage: tablesize, currentPage: page, totalItems: count }; let i = index" class="nth-of-type">
+                  <td>{{ book.id }}</td>
+                  <td>{{ book.clientName }}</td>
+                  <td>{{ book.service }}</td>
+                  <td>{{ book.price }}</td>
+                  <td>{{ book.short_time_in }}</td>
+                  <td>{{ book.short_time_out }}</td>
+                  <td>{{ book.short_time_create }}</td>
+                  <td>{{ book.companyName }}</td>
+                  <td><span class="badge bg-success">{{ book.stateOrder }}</span></td>
+                  <td><span class="badge bg-danger">{{ book.priseState }}</span></td>
+                  <td></td>
+                  <td>
+                    <button class="bbt-no"  (click)="acceptorder($event, book.id)"><span>قبول</span></button>
+                    <button class="bbt" (click)="deleteorder($event, book.id)"><span>رفض</span></button>
+                    <button class="bbt-print" (click)="generatePDF(book.id)"><span>طباعة</span></button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+    <div>
+      <pagination-controls 
+        previousLabel="prev"
+        nextLabel="next"
+        (pageChange)="onTableDatachange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+
+  <script src="bootstrap.bundle.min.js"></script></body>
+</html>

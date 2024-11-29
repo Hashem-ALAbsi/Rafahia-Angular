@@ -1,0 +1,78 @@
+
+<div>
+  <div class="users-text text-center ">[ البلاغات القديمة]</div>
+
+
+  <div class="mt-5 container" dir="rtl">
+    <div class="reports ">
+
+     
+        
+      </div>
+         
+          <div class="input-container">
+            <input type="text" placeholder="البحث عن مستخدم بلاغ" name="text" class="input" [(ngModel)]="searchTerm">
+          </div>
+          <div  class="count-row">
+
+        <select (change)="onTableSizeChangeactive($event)">
+          <option *ngFor="let size of tablesSizes">
+             {{size}}
+         </option>
+         </select>
+      </div>
+
+      <div class="card-body">
+        <div *ngIf="isloading; else elseTableBlock">
+          <app-loading></app-loading>
+        </div>
+        <ng-template #elseTableBlock>
+  <div class="table-responsive">
+      <table class="table table-sm table-bordered">    
+                <thead>
+              <tr>
+                <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">رقم البلاغ</th>
+              <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">الاسم العميل</th>
+             
+              <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> التعليق المرسل</th>
+              <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> اسم الشركه</th>
+              <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> سبب البلاغ</th>
+              <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">  </th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of activeuser | filter:searchTerm |paginate:{
+                itemsPerPage:tablesize,
+                currentPage:page,
+                totalItems:count
+                
+              } ; let i = index">
+                <td>{{ item.id }}</td>
+                <td>{{ item.clientName }}</td>
+                <td>{{ item.comment }}</td>
+                <td>{{ item.companyName }}</td>
+                <td>{{ item.name  }}</td>
+                
+                <!-- <a routerLink="/user/{{item.id }}/details" class="btn btn-success">تفاصيل المستخدم</a> -->
+                 <td >
+                  
+                  <!-- <a routerLink="/addrole" class="btn btn-success">Edit</a> -->
+                  <button type="button" (click)="deletecomment($event,item.commentid)" class="button-delete">
+                      <span> حذف التعليق </span>
+                    </button>
+                </td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+          <pagination-controls
+          previousLabel="السابق"
+          nextLabel="التالي"
+          (pageChange)="onTableDataChangeactive($event)">
+        </pagination-controls>
+        </ng-template>
+      </div>
+    </div>
+  

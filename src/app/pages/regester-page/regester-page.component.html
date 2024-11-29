@@ -1,0 +1,60 @@
+<div class="container mt-5" dir="rtl">
+    <!-- <ul>
+    <li *ngFor="let response of responseList">
+       <h1> Welcome </h1>{{ response.email }}
+    </li>
+  </ul> -->
+  <!-- <h1>Welcome,({{this.em}})</h1> -->
+    
+  <div >
+    <div class="card">
+      <div class="card-header">
+        <h4>إنشاء حساب صاحب منشأة</h4>
+        <a routerLink="/" class="btn btn-danger float-start">العودة</a>
+      </div>
+      <div class="card-body">
+  
+        <div *ngIf="isLoading; else elseForm">
+          <app-loading :title="loadingtitle" />
+        </div>
+        <ng-template #elseForm>
+          <form (ngSubmit)="saveadmin()">
+            <div class="mb-3">
+              <label>الاسم الأول</label>
+              <input type="text" [(ngModel)]="firstname" name="firstname" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.firstname}}</span>
+            </div>
+            <div class="mb-3">
+              <label>الاسم الأخير</label>
+              <input type="text" [(ngModel)]="lastname" name="lastname" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.lastname}}</span>
+            </div>
+            <div class="mb-3">
+              <label>اسم المستخدم</label>
+              <input type="text" [(ngModel)]="username" name="username" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.username}}</span>
+            </div>
+            <div class="mb-3">
+              <label>البريد الإلكتروني</label>
+              <input type="email" [(ngModel)]="email" name="email" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.email}}</span>
+            </div>
+            <div class="mb-3">
+              <label>كلمة المرور</label>
+              <input type="text" [(ngModel)]="password" name="password" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.password}}</span>
+            </div>
+            <div class="mb-3">
+              <label>رقم الهاتف</label>
+              <input type="number" [(ngModel)]="phonenumber" name="phonenumber" class="form-control" />
+              <span *ngIf="errors.name" class="text-danger">{{errors.phonenumber}}</span>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">حفظ</button>
+            </div>
+          </form>
+          
+        </ng-template>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="auto">
+<head>
+    <script src="color-modes.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+  
+    
+</head>
+<body>
+    <div>
+  <div dir="ltr" class="ps-3">
+    <button class="bbt" routerLink="/company/{{serviceid}}/detail" >
+      <span>عودة
+        
+      </span>
+    </button>
+  </div>
+  <div class="users-text text-center">[ الخدمات]</div>
+
+  <div class="container main-container">
+   
+
+          
+    <div class="table-responsive">
+      <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> الاسم</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> العدد</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> عدد الاشخاص</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> السعر</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell">الوصف</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> الشركة</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> صورة الخدمة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of services | servicefilter:service | paginate: { itemsPerPage: tablesize, currentPage: page, totalItems: count }; let i = index" class="nth-of-type">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.number }}</td>
+                  <td>{{ item.numberPeople }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.description }}</td>
+                  <td>{{ item.company }}</td>
+                  <td>
+                    <img class="img-responsive img-thumbnail" src="{{ item.imageService }}" style="width: 70px; height: 70px">
+                  </td>
+                
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+  </div>
+</div>
+<div class="users-text text-center">[ الخدمات الورشفة ]</div>
+
+  <div class="container main-container">
+   
+    
+
+          
+    <div class="table-responsive">
+      <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> الاسم</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> العدد</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> عدد الاشخاص</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> السعر</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell">الوصف</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> الشركة</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell"> صورة الخدمة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of servicedel">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.number }}</td>
+                  <td>{{ item.numberPeople }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.description }}</td>
+                  <td>{{ item.company }}</td>
+                  <td>
+                    <img class="img-responsive img-thumbnail" src="{{ item.imageService }}" style="width: 70px; height: 70px">
+                  </td>
+                
+                </tr>
+              </tbody>
+            </table>
+          </div>
+       
+    <div>
+    
+    </div>
+  </div>
+  
+
+
+</body>
+<script src="bootstrap.bundle.min.js"></script>
+</html>

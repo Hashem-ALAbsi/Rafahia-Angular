@@ -1,0 +1,64 @@
+
+<div>
+    <div class="users-text text-center ">[ البلاغات الجديدة]</div>
+  
+    <div class="mt-5 container" dir="rtl">
+  
+        <div class="reports ">
+          
+        </div>
+        <div  class="count-row">
+          <select (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tablesSizes">
+               {{size}}
+           </option>
+           </select>
+          </div>
+      
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered">
+               <thead>
+              <tr>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">رقم البلاغ</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">الاسم العميل</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> التعليق المرسل</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> اسم الشركه</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col"> سبب البلاغ</th>
+                  <th class="tth d-sm-table-cell d-xl-table-cell" scope="col">  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of blockuser|paginate:{
+                itemsPerPage:tablesize,
+                currentPage:page,
+                totalItems:count
+                
+              } ; let i = index">
+                 <td>{{ user.id }}</td>
+                 <td>{{ user.clientName }}</td>
+                 <td>{{ user.comment }}</td>
+                 <td>{{ user.companyName }}</td>
+                 <td>{{ user.name  }}</td>
+                 <td>  
+                   <button type="button" (click)="reportwatched($event,user.id)" class="button-block">
+                   <span> تمت المشاهدة</span>
+                   </button>
+                   </td>
+  
+              
+              <!-- <button type="button" (click)="acceptuser($event,user.id)" class="btn btn-success">الغاء الحظر</button>  -->
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls
+          previousLabel="التالي"
+          nextLabel="السابق"
+          (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+        </div>
+  
+    </div>
+  
+    
+    
+  

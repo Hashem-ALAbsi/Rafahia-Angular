@@ -1,0 +1,69 @@
+<div class="mt-5 container">
+    <div class="card">
+      <div class="card-header">
+        <h4>الحجوزات
+   
+          <div class="input-container">
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search ....">
+          </div>
+        </h4>
+        <button type="button" (click)="getAllOrdersisbooked()" class="btn btn-success">الحجوزات المقبولة</button>
+        <button type="button" (click)="getAllOrdersnotbooked()" class="btn btn-danger">الحجوزات المرفوضة</button>
+        <button type="button" (click)="getAllOrders()" class="btn btn-danger">جميع الحجوزات </button>
+
+      </div>
+      <div class="card-body" >
+        <div *ngIf="isLoading; else elseTableBlock">
+          <app-loading></app-loading>
+        </div>
+        <ng-template #elseTableBlock>
+          <table class="table table-striped table-bordered  table-width">
+            <thead>
+              <tr>
+               <th>حساب العميل</th>
+               <th> الخدمة</th>
+               <th> سعر الخدمة</th>
+               <th>تاريخ الدخول</th>
+               <th>تاريخ الخروج</th>
+               <th>رقم الحجز </th>
+               <th>اسم الشركة </th>
+               <th>حالة الحجز</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of orders | filter:searchTerm ">
+                
+                <td>{{ item.client }}</td>
+                <td>{{ item.service }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.time_in }}</td>
+                <td>{{ item.time_out }}</td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.companyName }}</td>
+                <td>{{ item.stateOrder }}</td>
+                
+              
+                
+               
+                
+                <button type="button" (click)="generatePDF(item.id)"  class="btn btn-success">Generate PDF</button>
+                
+                  <!-- <a routerLink="/update/{{item.id}}/company" class="btn btn-success">Edit</a>
+                  <a routerLink="/show/{{item.id}}/Service" class="btn btn-success">ser</a>
+                  <a routerLink="/showimage/{{item.id}}/company" class="btn btn-success">ph</a> -->
+
+
+                  <!-- <button type="button" (click)="deletecompany($event,item.id,Email)" class="btn btn-danger">Delete</button>  -->
+                  
+             </tbody>
+          </table>
+          
+        </ng-template>
+      </div>
+    </div>
+  </div> 
+  
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+
+
+    <!-- <link href="form.css" rel="stylesheet"> -->
+</head>
+<body>
+    
+
+  <div class="container">
+    <div class="text">
+        إنشاء خدمة
+    </div>
+    <form action="#"  [formGroup]="createserviceForm" (ngSubmit)="save()">
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" required [(ngModel)]="email" formControlName="Email" readonly>
+               
+                <div class="underline"></div>
+                
+            </div>
+            <div class="input-data">
+                <input type="text" required   formControlName="Name" >
+                <div class="underline"></div>
+                <label for=""> اسم الخدمة</label>
+            </div>
+            <div class="input-data">
+                <input type="text" formControlName="Number">
+                <div class="underline"></div>
+                <label for=""> العدد</label>
+            </div>
+            <div class="input-data">
+                <input type="text" formControlName="NumberPeople">
+                <div class="underline"></div>
+                <label for=""> عدد الاشخاص</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" required   formControlName="Price">
+                <div class="underline"></div>
+                <label for=""> السعر</label>
+            </div>
+            <div class="input-data">
+                <input type="text" required formControlName="Description" >
+                <div class="underline"></div>
+                <label for=""> ملاحظة</label>
+            </div>
+        </div>
+        <input class="inn" type="file" id="myFile" name="filename" (change)="selectphoto($event)">
+        <div class="form-row">
+            <div class="input-data textarea"></div>
+        </div>
+        <div class="form-row submit-btn">
+            <div class="input-data">
+                <div class="inner"></div>
+                <input type="submit" value="حفظ">
+            </div>
+        </div>
+        <br>
+        <!-- <div class="form-row submit-btn">
+          <div class="input-data">
+              <div class="inner"></div>
+              <a routerLink="/" >العودة</a>
+          </div>
+      </div>  -->
+    </form>
+</div>
+</body>
+</html>

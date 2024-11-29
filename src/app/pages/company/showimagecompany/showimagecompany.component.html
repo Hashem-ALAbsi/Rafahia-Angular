@@ -1,0 +1,37 @@
+
+    <div class="container">
+      <div dir="ltr" class="ps-3">
+        <button class="btn btn-primary " routerLink="/mainowner" >
+          <span>عودة
+            
+          </span>
+        </button>
+      </div>
+      <div *ngIf="companyImages.length<5" class="card-header">
+        <h4>
+          
+          <a routerLink="/addimage/{{companyId}}/company" class="btn btn-primary float-end" >أضافة صور</a>
+        
+        </h4>
+      
+      </div>
+      
+        <div class="row mt-4">
+          <div class="col">
+            <div *ngIf="companyImages.length === 0" class="alert alert-info">
+                لم تقم باضافة صور .
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div *ngFor="let image of companyImages" class="col">
+                <div class="card">
+                  <img [src]="image.imageName" class="card-img-top" alt="Company Image">
+                  <div class="card-body">
+                    <button (click)="delete($event,image.id,email)" class="btn btn-danger">delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  

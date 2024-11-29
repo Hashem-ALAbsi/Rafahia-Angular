@@ -1,0 +1,223 @@
+<!-- 
+  <div class="container mt-5" dir="rtl">
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <h4>إنشاء  منشأة</h4>
+          <a href="/" class="btn btn-danger float-start">العودة</a>
+        </div>
+        <div class="card-body">
+          <div *ngIf="isLoading; else elseForm">
+            <app-loading [title]="loadingTitle"></app-loading>
+          </div>
+          <ng-template #elseForm>
+            <form [formGroup]="updateCompanyForm" (ngSubmit)="update()">
+              <div class="mb-3">
+                <label > البريد الالكتروني</label>
+                <input type="text" [(ngModel)]="emm" formControlName="Email"   class="form-control" readonly/>
+              </div>
+              <div class="mb-3">
+                <label >اسم الشركة</label>
+                <input type="text" formControlName="Name" [(ngModel)]="company.name"  class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label >نوع الشركة</label>
+                <select [(ngModel)]="company.TypeCompanyId" formControlName="TypeCompanyId">
+                  <option value="1">فندق</option>
+                  <option value="2">شالية</option>
+                  <option value="3">استراحة</option>
+                </select>
+                
+              </div> 
+             
+              <div class="mb-3">
+                <label > خطوط العرض</label>
+                <input type="text"  [(ngModel)]="company.longtude" formControlName="Longtude" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label >خطوط الطول</label>
+                <input type="text" [(ngModel)]="company.latetud" formControlName="Latetud" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label > الموقع</label>
+                <input type="text" formControlName="AddressId"  [(ngModel)]="company.addressId"  class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label >ملاحظات</label>
+                <textarea formControlName="Note" [(ngModel)]="company.note" class="form-control"></textarea>
+              </div>
+              <div class="mb-3">
+                <label >مطعم</label>
+                <input type="checkbox" formControlName="Rustorant" [(ngModel)]="company.rustorant" />
+              </div>
+              <div class="mb-3">
+                <label >حمام سباحة</label>
+                <input type="checkbox" formControlName="Swimmingbool" [(ngModel)]="company.swimmingbool" />
+              </div>
+              <div class="mb-3">
+                <label >قهوة</label>
+                <input type="checkbox" formControlName="Cooffee" [(ngModel)]="company.cooffee" />
+              </div>
+              <div class="mb-3">
+                <label >صورة المنشأة</label>
+                <input type="file"  [(ngModel)]="company.imageCompany"  id="myFile"  name="filename" (change)="selectPhoto($event)">
+              </div>
+              <div class="mb-3">
+                <input type="submit" value="Save" >
+                
+              </div>
+            </form>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+  <html lang="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء منشأه</title>
+
+
+    
+</head>
+<body>
+  <div dir="ltr" class="ps-3">
+    <button *ngIf="!admin" class="bbt" routerLink="/mainowner" >
+      <span>عودة
+        
+      </span>
+    </button>
+    <button *ngIf="admin" class="bbt" routerLink="/showallcompany" >
+      <span>عودة
+        
+      </span>
+    </button>
+  </div>
+    
+
+  <div class="container">
+    <div class="text">
+        تعديل بيانات المنشأه
+    </div>
+    <form action="#" [formGroup]="updateCompanyForm" (ngSubmit)="update()">
+        <div class="form-row">
+          <div class="input-data">
+            <div class="onlyread"> اسم الشركة</div>
+            <input type="text"  formControlName="Name" [(ngModel)]="company.name"  class="form-control"   />
+            <div class="underline"></div>
+          
+        </div>
+
+        
+            <div class="input-data">
+              <div class="onlyread">البريد الالكتروني</div>
+                <input type="text" [(ngModel)]="emm" formControlName="Email"   class="form-control" readonly  />
+                <div class="underline"></div>
+               
+            </div>
+     
+        </div>
+
+        <div class="form-row pt-4">
+          <div class="paste-button">
+            <label for="company-type"> المحافظة</label>
+            <select formControlName="AddressId">
+                <option value=2>صنعاء</option>
+                <option value=3> اب</option>
+                <option value=4>تعز  </option>
+                <option value=5>عدن  </option>
+                <option value=6>الحديدة  </option>
+                
+            </select>
+        </div>
+          <div class="input-data">
+            <div class="onlyread"> المديرية</div>
+            <input type="text" formControlName="CityName"  [(ngModel)]="company.cityName"  class="form-control">
+            <div class="underline"></div>
+          
+        </div>
+        <div class="input-data">
+          <div class="onlyread">نبذة عن الشركة </div>
+          <input type="text" formControlName="Note" [(ngModel)]="company.note" class="form-control">
+          <div class="underline"></div>
+          
+      </div>
+      <div class="input-data">
+        <div class="onlyread"> خط الطول</div>
+        <input type="text" [(ngModel)]="company.latetud" formControlName="Latetud" class="form-control" readonly>
+        <div class="underline"></div>
+     
+    </div>
+            <div class="input-data">
+              <div class="onlyread">خط العرض </div>
+                <input type="text" [(ngModel)]="company.longtude" formControlName="Longtude" class="form-control" readonly>
+                <div class="underline"></div>
+              
+            </div>
+         
+         
+          
+        </div>
+     <div class="services">الخدمات</div>
+
+        <label class="cyberpunk-checkbox-label pt-4">
+            <input type="checkbox" class="cyberpunk-checkbox" [(ngModel)]="company.rustorant" formControlName="Rustorant">
+            مطعم
+        </label>
+        <label class="cyberpunk-checkbox-label">
+            <input type="checkbox" class="cyberpunk-checkbox" [(ngModel)]="company.swimmingbool" formControlName="Swimmingbool">
+            مسبح
+        </label>
+        <label class="cyberpunk-checkbox-label">
+            <input type="checkbox" class="cyberpunk-checkbox " [(ngModel)]="company.cooffee" formControlName="Cooffee">
+            مقهى
+        </label>
+
+        <!-- <div class="paste-button">
+            <button class="button">المحافظه &nbsp; ▼</button>
+            <div class="dropdown-content">
+                <a id="top" href="#">Keep source formatting</a>
+                <a id="middle" href="#">Merge formatting</a>
+                <a id="bottom" href="#">Keep text only</a>
+            </div>
+        </div> -->
+
+        <input class="inn" type="file" id="myFile" name="filename" (change)="selectPhoto($event)">
+        
+
+        <!-- <div class="paste-button">
+          <label for="company-type">نوع الشركة</label>
+          <select id="company-type"  [(ngModel)]="company.TypeCompanyId" formControlName="TypeCompanyId">
+              <option value=1>فندق</option>
+              <option value=2> شاليه</option>
+              <option value=3>استراحه  </option>
+          </select>
+      </div> -->
+      
+
+        <div class="form-row">
+            <div class="input-data textarea pb-5">
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                        <div class="inner"></div>
+                        <input type="submit" value="حفظ">
+                    </div>
+                </div>
+ 
+                <!-- <div class="form-row submit-btn">
+                  <div class="input-data">
+                      <div class="inner"></div>
+                      <a href="/">العودة</a>
+                  </div>
+              </div> -->
+            </div>
+        </div>
+    </form>
+   
+    <div id="map" style="width: 100%; height: 400px;"  ></div> 
+</div>
+        
+</body>
+</html>

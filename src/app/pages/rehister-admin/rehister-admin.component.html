@@ -1,0 +1,80 @@
+
+
+
+  <!DOCTYPE html>
+<html lang="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء حساب مسوؤل</title>
+
+
+    <!-- <link href="form.css" rel="stylesheet"> -->
+</head>
+<body>
+    
+
+  <div class="container">
+    <div class="text">
+        انشاء حساب مسوؤل
+    </div>
+    <form action="#" (ngSubmit)="saveadmin()">
+        <div class="form-row ">
+           
+            <div class="input-data">
+                <input type="text" required [(ngModel)]="firstname" name="firstname">
+                <div class="underline"></div>
+                <label for="">الاسم الاول</label>
+            </div>
+            <div class="input-data">
+              <input type="text" required  [(ngModel)]="lastname" name="lastname">
+              <div class="underline"></div>
+              <label for="">الاسم الاخير</label>
+          </div>
+        </div>
+        <div class="form-row pt-4">
+          <div class="input-data">
+            <input type="text" required [(ngModel)]="username" name="username">
+            <div class="underline"></div>
+            <label for="">اسم المستخدم</label>
+        </div>
+            <div class="input-data">
+                <input type="text" required  [(ngModel)]="email" name="email">
+                <div class="underline"></div>
+                <label for="">البريد الالكتروني</label>
+            </div>
+            
+        </div>
+        <div class="form-row pt-4">
+          <div class="input-data">
+            <input type="text" required  [(ngModel)]="phonenumber" name="phonenumber">
+            <div class="underline"></div>
+            <label for="">رقم الهاتف</label>
+        </div>
+            <div class="input-data">
+                <input type="password" required [(ngModel)]="password" name="password">
+                <div class="underline"></div>
+                <label for="">كلمة المرور</label>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="input-data textarea"></div>
+        </div>
+        <div class="form-row submit-btn">
+            <div class="input-data">
+                <div class="inner"></div>
+                <input type="submit" value="حفظ">
+            </div>
+        </div>
+        <br>
+        <!-- <div class="form-row submit-btn">
+          <div class="input-data">
+              <div class="inner"></div>
+              <a routerLink="/" >العودة</a>
+          </div>
+      </div>  -->
+    </form>
+</div>
+</body>
+</html>

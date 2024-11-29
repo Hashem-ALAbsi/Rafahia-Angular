@@ -1,0 +1,22 @@
+<div dir="rtl">
+<button dir="rtl" style="margin-right: 20px;" (click)="goBack()">تراجع</button>
+<div *ngIf="users" class="container">
+    <h2 class="mt-4" dir="rtl">تفاصيل المستخدم</h2>
+    <div class="card mt-4">
+      <div class="card-body" dir="rtl">
+        <p class="card-text border border-primary p-2 text-end"><strong>الاسم الاول:</strong> {{ users.firstName }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>الاسم الاخير:</strong> {{ users.laststName }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong> العمر:</strong> {{ users.age }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>البريد الالكتروني:</strong> {{ users.userEmail }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>اسم المستخدم:</strong> {{ users.userName }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>رقم الجوال :</strong> {{ users.phoneNumbar }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>الجنس :</strong> {{ users.sexually }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>الحالة الاجتماعية :</strong> {{ users.marital_State }}</p>
+        <p class="card-text border border-primary p-2 text-end"><strong>الدولة :</strong> {{ users.country }}</p>
+
+        
+     
+      </div>
+    </div>
+  </div>
+</div>

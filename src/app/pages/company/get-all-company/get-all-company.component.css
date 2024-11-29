@@ -1,0 +1,221 @@
+/* .card-body {
+    width: 100%;
+    
+  }
+  .custom-card {
+    background-color: #5c7692;
+  }
+  
+  .table-width {
+    width: 100%;
+  }
+  .table-custom {
+    background-color: #f2f2f2; 
+    color: #333333; 
+  }
+  
+  .table-custom th {
+    background-color: #dddddd; 
+    color: #333333; 
+  }
+  
+  .table-custom tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9; 
+  }
+  
+  .table-custom.table-bordered {
+    border: 1px solid #dddddd; 
+  } */
+
+
+
+
+
+.containermain{
+  width: 100%;
+  margin-left: 200px;
+  margin-right: 200px;
+  align-items: center;
+}
+  .table{
+  
+    border:solid #333;
+    
+}
+.bd-example-snippet{
+    width: 950px;
+}
+
+
+
+.users-text{
+  font-size:28px;
+  padding-bottom:20px;
+}
+
+
+
+table tr .tth{
+  background-color: #467194;
+  color: #ffffff;
+}
+
+
+.container-input {
+  position: relative;
+  right:0 ;
+  left: 0;
+  margin-right: 50px;
+  
+  width: 100px;
+  }
+  
+  .input {
+  width: 300px;
+  padding: 10px 50px 10px 40px;
+  border-radius: 20px 0 0 0;
+  border: solid 1px #333;
+  transition: all .2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+  }
+  
+
+
+  .count-row{
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right:50px
+  }
+  
+  .table-responsive{
+    margin-left:20px;
+    margin-right:20px
+   }
+   .button-block {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 8px 15px 8px 15px;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 500px;
+    overflow: hidden;
+    background: #b4565f;
+    color: rgb(255, 251, 248);
+   }
+   
+   .button-block span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+   }
+   
+   .button-block:hover span {
+    color: #efebb4;
+   }
+   
+   .button-block::before,
+   .button-block::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+   }
+   
+   .button-block::before {
+    content: "";
+    background: #7c1620;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+   }
+   
+   .button-block:hover::before {
+    transform: translate3d(100%, 0, 0);
+   }
+
+
+
+
+.container-input svg {
+  position: absolute;
+  top: 50%;
+  left: 70px;
+  transform: translate(0, -50%);
+}
+
+.input:focus {
+  opacity: 1;
+  width: 250px;
+}
+
+
+
+
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 8px 15px 8px 15px;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.05rem;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 500px;
+  overflow: hidden;
+  background: #719e89;
+  color: rgb(255, 251, 248);
+ }
+ 
+ button span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+ }
+ 
+ button:hover span {
+  color: white;
+ }
+ 
+ button::before,
+ button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+ }
+ 
+ button::before {
+  content: "";
+  background: #508862;
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+ }
+ 
+ button:hover::before {
+  transform: translate3d(100%, 0, 0);
+ }
+
+   .imgess{
+    width: 50px;
+    height: 35px; 
+   }

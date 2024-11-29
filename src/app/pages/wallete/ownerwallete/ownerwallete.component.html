@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="auto">
+
+<head>
+  <script src="color-modes.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.118.2">
+
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cheatsheet-rtl/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link rel="stylesheet" href="hh.css">
+    <link rel="stylesheet" href="bootstrap.rtl.min.css"> -->
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html lang="ar" dir="rtl" data-bs-theme="auto">
+
+  <head>
+    <script src="color-modes.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+
+
+  </head>
+
+  <body>
+    <div class="users-text text-center">[ محافظ الشركات]</div>
+
+    <div class="container ">
+      <div class="container-input">
+        <input type="text" placeholder=" البحث عن محفظة " name="text" class="input" [(ngModel)]="searchcompany">
+        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z"
+            fill-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div  class="count-row">
+        <select (change)="onTableSizechange($event)">
+          <option *ngFor="let size of tablesSizes">{{size}}</option>
+        </select>
+      </div>
+
+      
+            <div class="table-responsive">
+              <table class="table table-sm table-bordered">
+                <thead>
+                  <tr>
+                    <!-- <th class="tth d-sm-table-cell d-xl-table-cell"> المعرف</th> -->
+                    <th class="tth d-sm-table-cell d-xl-table-cell"> رقم المحفظة</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell">  اسم المستخدم</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell">  البريد الالكتروني</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell"> اسم الشركة</th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell"> نشط </th>
+                    <th class="tth d-sm-table-cell d-xl-table-cell"> تاريخ الانشاء</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of allcompany | filtercompany:searchcompany | paginate: {
+                        itemsPerPage: tablesize,
+                        currentPage: page,
+                        totalItems: count
+                    }; let i = index" class="nth-of-type">
+                    <!-- <td>{{ item.id }}</td> -->
+                    <td>{{ item.walletNumber }}</td>
+                    <td>{{ item.userName }}</td>
+                    <td>{{ item.userEmail }}</td>
+                    <td>{{ item.companyName }}</td>
+                    <td>{{ item.isActive }}</td>
+                    <td>{{ item.createdAt }}</td>
+                    
+                   
+                   
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+     
+
+    <script src="bootstrap.bundle.min.js"></script>
+  </body>
+
+  </html>
